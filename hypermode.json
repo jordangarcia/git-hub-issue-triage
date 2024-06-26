@@ -1,0 +1,31 @@
+{
+  "$schema": "https://manifest.hypermode.com/hypermode.json",
+
+  "models": {
+    "issue-classifier": {
+      "sourceModel": "AntoineMC/distilbart-mnli-github-issues",
+      "provider": "hugging-face",
+      "host": "hypermode"
+    },
+    "text-generator": {
+      "sourceModel": "gpt-4o",
+      "host": "openai",
+      "path": "v1/chat/completions"
+    }
+  },
+
+  "hosts": {
+    "github": {
+      "baseUrl": "https://api.github.com/",
+      "headers": {
+        "Authorization": "Bearer {{AUTH_TOKEN}}"
+      }
+    },
+    "openai": {
+      "baseUrl": "https://api.openai.com/",
+      "headers": {
+        "Authorization": "Bearer {{API_KEY}}"
+      }
+    }
+  }
+}
